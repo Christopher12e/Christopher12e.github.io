@@ -20,16 +20,17 @@
     header {
       background-color: #0a1f44;
       color: white;
-      padding: 15px 50px;
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
       z-index: 100;
+      flex-wrap: wrap;
     }
 
-    /* 🔹 Logo con animación */
+    /* Logo con animación */
     .logo {
       display: flex;
       align-items: center;
@@ -52,10 +53,14 @@
       color: white;
     }
 
+    header nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
     header nav a {
       color: white;
       text-decoration: none;
-      margin-left: 20px;
       font-weight: bold;
     }
     header nav a:hover { color: #00bcd4; }
@@ -86,7 +91,7 @@
 
     /* Servicios */
     .services {
-      padding: 60px 50px;
+      padding: 60px 30px;
       background-color: #f4f4f4;
     }
     .services h2 { text-align: center; margin-bottom: 50px; font-size: 2.5rem; color: #0a1f44; }
@@ -110,7 +115,7 @@
 
     /* Nosotros */
     .about {
-      padding: 60px 50px;
+      padding: 60px 30px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -134,7 +139,7 @@
 
     /* Casos de éxito */
     .cases {
-      padding: 60px 50px;
+      padding: 60px 30px;
       background-color: #f4f4f4;
     }
     .cases h2 { text-align: center; margin-bottom: 40px; font-size: 2.5rem; color: #0a1f44; }
@@ -151,10 +156,11 @@
     }
     .gallery img:hover { transform: scale(1.05); }
 
-     /* Videos */
+    /* Videos */
     .videos {
       margin: 50px 0;
       text-align: center;
+      padding: 0 20px;
     }
     .videos h3 {
       color: #007bff;
@@ -167,8 +173,8 @@
     }
     .video-galeria video {
       width: 100%;
-      aspect-ratio: 1 / 1;   /* 🔲 Fuerza que el video tenga forma cuadrada */
-      object-fit: cover;     /* 📐 Ajusta el video dentro del cuadrado sin deformarlo */
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       transition: transform 0.3s ease, filter 0.3s ease;
@@ -180,7 +186,7 @@
 
     /* Contacto */
     .contact {
-      padding: 60px 50px;
+      padding: 60px 30px;
       background-color: #f4f4f4;
     }
     .contact h2 { text-align: center; margin-bottom: 50px; font-size: 2.5rem; color: #0a1f44; }
@@ -210,7 +216,7 @@
     }
     .contact button:hover { background-color: #0097a7; }
 
-     /* CTA */
+    /* CTA */
     .cta {
       margin: 50px 0;
     }
@@ -234,14 +240,36 @@
     footer {
       background-color: #0a1f44;
       color: white;
-      padding: 30px 50px;
+      padding: 30px 20px;
       text-align: center;
     }
     footer a { color: #00bcd4; margin: 0 10px; text-decoration: none; }
+
+    /* 🔹 Media Queries (Responsive) */
+    @media (max-width: 1024px) {
+      .hero h1 { font-size: 2.5rem; }
+      .hero p { font-size: 1rem; }
+    }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; text-align: center; }
+      header nav { justify-content: center; margin-top: 10px; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .about { flex-direction: column; text-align: center; }
+      .about img { max-width: 80%; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.6rem; }
+      .hero p { font-size: 0.9rem; }
+      .services h2, .cases h2, .about h2, .contact h2 { font-size: 1.8rem; }
+      .cta button { font-size: 1rem; padding: 12px 25px; }
+      .video-galeria { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-
   <!-- Header -->
   <header>
     <div class="logo">
@@ -313,32 +341,30 @@
   </section>
 
   <!-- Videos -->
-    <div class="videos">
-      <h3>🎥 Trabajos realizados</h3>
-      <div class="video-galeria">
-        <video controls>
-          <source src="videos/Video Electrico 1.mp4" type="video/mp4">
-          Tu navegador no soporta el formato de video.
-        </video>
-        <video controls>
-          <source src="videos/Video Electrico 1.mp4" type="video/mp4">
-          Tu navegador no soporta el formato de video.
-        </video>
-        <video controls>
-          <source src="videos/Video Electrico 1.mp4" type="video/mp4">
-          Tu navegador no soporta el formato de video.
-        </video>
-      </div>
+  <div class="videos">
+    <h3>🎥 Trabajos realizados</h3>
+    <div class="video-galeria">
+      <video controls>
+        <source src="videos/Video Electrico 1.mp4" type="video/mp4">
+        Tu navegador no soporta el formato de video.
+      </video>
+      <video controls>
+        <source src="videos/Video Electrico 1.mp4" type="video/mp4">
+        Tu navegador no soporta el formato de video.
+      </video>
+      <video controls>
+        <source src="videos/Video Electrico 1.mp4" type="video/mp4">
+        Tu navegador no soporta el formato de video.
+      </video>
     </div>
+  </div>
 
-    <!-- CTA -->
-
-    <center>
+  <!-- CTA -->
+  <center>
     <div class="cta">
-    <button onclick="window.location.href='index.html#contacto'">⚡ Solicitar servicio tegnologicos</button>
+      <button onclick="window.location.href='index.html#contacto'">⚡ Solicitar servicio tecnológicos</button>
     </div>
-    </center>
-
+  </center>
 
   <!-- Contacto -->
   <section class="contact" id="contact">
@@ -361,6 +387,5 @@
   <footer>
     <p>© 2025 Light Guard. Todos los derechos reservados.</p>
   </footer>
-
 </body>
 </html>
