@@ -13,7 +13,7 @@
       background: #d3d7dc;
       color: #333;
       scroll-behavior: smooth;
-      padding-top: 70px; /* espacio para que no se tape con el header */
+      padding-top: 70px;
     }
 
     header {
@@ -54,6 +54,10 @@
       margin: 0;
     }
 
+    nav {
+      position: relative;
+    }
+
     nav ul {
       list-style: none;
       display: flex;
@@ -73,6 +77,14 @@
       color: #00a8ff;
     }
 
+    /* Botón hamburguesa */
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
     .section-title {
       text-align: center;
       font-size: 2rem;
@@ -80,7 +92,7 @@
       color: #1e272e;
     }
 
-    /* Sección Servicios */
+    /* Servicios */
     .servicios {
       max-width: 1100px;
       margin: 20px auto 60px auto;
@@ -97,8 +109,6 @@
       box-shadow: 0 10px 15px rgba(0,0,0,0.1);
       text-align: center;
       transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
-      position: relative;
-      overflow: hidden;
     }
 
     .card:hover {
@@ -151,7 +161,7 @@
       color: #fff;
     }
 
-    /* Sección Nosotros */
+    /* Nosotros */
     .nosotros {
       max-width: 1000px;
       margin: 40px auto;
@@ -189,17 +199,7 @@
       transform: scale(1.1) rotate(5deg);
     }
 
-    .team-member h4 {
-      margin: 10px 0 5px 0;
-      color: #1e272e;
-    }
-
-    .team-member p {
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    /* Sección Certificaciones */
+    /* Certificaciones */
     .certificaciones {
       max-width: 1000px;
       margin: 40px auto 60px auto;
@@ -223,28 +223,7 @@
       box-shadow: 0 16px 20px rgba(0,0,0,0.2);
     }
 
-    .cert-card img {
-      width: 100px;
-      height: auto;
-      margin-bottom: 15px;
-      transition: transform 0.3s ease;
-    }
-
-    .cert-card:hover img {
-      transform: scale(1.1);
-    }
-
-    .cert-card h4 {
-      margin: 10px 0 5px 0;
-      color: #1e272e;
-    }
-
-    .cert-card p {
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    /* Sección Contacto */
+    /* Contacto */
     .contacto {
       max-width: 800px;
       margin: 40px auto 60px auto;
@@ -252,12 +231,6 @@
       border-radius: 20px;
       padding: 30px;
       box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .contacto:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 16px 25px rgba(0,0,0,0.2);
     }
 
     .contacto form {
@@ -273,12 +246,6 @@
       font-size: 1rem;
       width: 100%;
       box-sizing: border-box;
-      transition: border-color 0.3s ease;
-    }
-
-    .contacto input:focus, .contacto textarea:focus {
-      border-color: #00a8ff;
-      outline: none;
     }
 
     .contacto button {
@@ -297,11 +264,63 @@
       transform: scale(1.05);
     }
 
+    /* Footer con redes sociales */
     footer {
       text-align: center;
       padding: 20px;
       background: #1e272e;
       color: #dcdde1;
+    }
+
+    .social-icons {
+      margin: 15px 0;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: #dcdde1;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #00a8ff;
+    }
+
+    /* Responsividad */
+    @media (max-width: 768px) {
+      .logo-container h1 {
+        font-size: 1.2rem;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #1e272e;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 15px;
+        border-radius: 0 0 8px 8px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section-title {
+        font-size: 1.5rem;
+      }
+      .card {
+        padding: 20px;
+      }
     }
   </style>
 </head>
@@ -315,6 +334,7 @@
       <h1>Light Guard</h1>
     </div>
     <nav>
+      <i class="fa-solid fa-bars menu-toggle"></i>
       <ul>
         <li><a href="#"><i class="fa-solid fa-house"></i> Inicio</a></li>
         <li><a href="#servicios"><i class="fa-solid fa-gear"></i> Servicios</a></li>
@@ -324,6 +344,15 @@
       </ul>
     </nav>
   </header>
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector("nav ul");
+
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+    });
+  </script>
 
   <!-- Sección Servicios -->
   <h2 id="servicios" class="section-title">Nuestros Servicios</h2>
@@ -414,7 +443,13 @@
   </section>
 
   <footer>
-    &copy; 2025 Light Guard. Todos los derechos reservados.
+    <p>&copy; 2025 Light Guard. Todos los derechos reservados.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+    </div>
   </footer>
 
 </body>
