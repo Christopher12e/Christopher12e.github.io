@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Refrigeración</title>
+  <link rel="icon" href="Light Guard.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      background: #d3d7dc;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Encabezado */
+    header {
+      background: linear-gradient(90deg, #012639, #005f73);
+      padding: 12px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-container img {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      transition: transform 0.6s ease, filter 0.3s ease;
+      cursor: pointer;
+    }
+    .logo-container img:hover {
+      transform: scale(1.15) rotate(360deg);
+      filter: drop-shadow(0 0 8px #00b4d8);
+    }
+    .logo-container h1 {
+      color: #fff;
+      font-size: 1.6rem;
+      margin: 0;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #dcdde1;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      color: #00b4d8;
+      text-shadow: 0 0 6px rgba(0,168,255,0.7);
+    }
+
+    /* Contenido principal */
+    .contenido {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    h2 {
+      color: #0077b6;
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
+    p {
+      font-size: 1.15rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    /* Servicios */
+    .servicios {
+      margin: 40px 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .card i {
+      font-size: 2.5rem;
+      color: #0077b6;
+      margin-bottom: 12px;
+    }
+    .card h3 {
+      margin: 12px 0;
+      font-size: 1.3rem;
+      color: #333;
+    }
+
+    /* Beneficios */
+    .beneficios {
+      margin: 40px 0;
+      text-align: left;
+      background: #f1fbff;
+      padding: 25px;
+      border-radius: 12px;
+    }
+    .beneficios h3 {
+      color: #0077b6;
+      margin-bottom: 10px;
+    }
+    .beneficios ul {
+      list-style: none;
+      padding: 0;
+    }
+    .beneficios ul li {
+      margin: 10px 0;
+      font-size: 1.05rem;
+    }
+    .beneficios ul li::before {
+      content: "❄️";
+      margin-right: 10px;
+      color: #00b4d8;
+    }
+
+    /* Casos */
+    .casos {
+      margin: 40px 0;
+    }
+    .casos h3 {
+      color: #0077b6;
+      margin-bottom: 15px;
+    }
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+      margin-top: 15px;
+    }
+    .galeria img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, filter 0.3s;
+    }
+    .galeria img:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    /* Videos */
+    .videos {
+      margin: 50px 0;
+      text-align: center;
+    }
+    .videos h3 {
+      color: #0077b6;
+      margin-bottom: 20px;
+    }
+    .video-galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .video-galeria video {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .video-galeria video:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    /* CTA */
+    .cta {
+      margin: 50px 0;
+    }
+    .cta button {
+      background: linear-gradient(45deg, #00b4d8, #0077b6);
+      color: white;
+      border: none;
+      padding: 15px 35px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .cta button:hover {
+      background: linear-gradient(45deg, #0077b6, #023e8a);
+      transform: scale(1.08);
+    }
+
+    /** Footer actualizado **/
+    footer {
+      background-color: #001d3d;
+      color: white;
+      padding: 30px 50px;
+      text-align: center;
+    }
+    footer a { color: #00bcd4; margin: 0 10px; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <!-- Encabezado con menú -->
+  <header>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="imagenes/Light Guard.png" alt="Logo Refrigeración">
+      </a>
+      <h1>Light Guard</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+        <li><a href="index.html#servicios"><i class="fa-solid fa-snowflake"></i> Servicios</a></li>
+        <li><a href="index.html#nosotros"><i class="fa-solid fa-users"></i> Nosotros</a></li>
+        <li><a href="index.html#contacto"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <section class="contenido">
+    <h2>❄️ Servicios de Refrigeración</h2>
+    <p>Soluciones en refrigeración y climatización para hogares, comercios e industrias.</p>
+
+    <!-- Servicios -->
+    <div id="servicios" class="servicios">
+      <div class="card">
+        <i class="fa-solid fa-snowflake"></i>
+        <h3>Instalación de equipos</h3>
+        <p>Aire acondicionado y cámaras frigoríficas con garantía.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-screwdriver-wrench"></i>
+        <h3>Mantenimiento</h3>
+        <p>Preventivo y correctivo para prolongar la vida útil de sus equipos.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-fan"></i>
+        <h3>Reparación</h3>
+        <p>Reparación de neveras, aires acondicionados y sistemas de refrigeración.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-temperature-low"></i>
+        <h3>Climatización</h3>
+        <p>Ambientes confortables con sistemas eficientes de climatización.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-industry"></i>
+        <h3>Sistemas industriales</h3>
+        <p>Instalación y soporte de cuartos fríos y equipos comerciales.</p>
+      </div>
+    </div>
+
+    <!-- Beneficios -->
+    <div class="beneficios">
+      <h3>✅ Beneficios</h3>
+      <ul>
+        <li>Equipos energéticamente eficientes</li>
+        <li>Mayor durabilidad de sistemas</li>
+        <li>Atención rápida y especializada</li>
+      </ul>
+    </div>
+
+    <!-- Casos -->
+    <div class="casos">
+      <h3>📸 Casos de éxito</h3>
+      <div class="galeria">
+        <img src="imagenes/instalacion de aire.jpg" alt="Instalación de aire acondicionado">
+        <img src="imagenes/OIP.webp" alt="Cámara frigorífica instalada">
+        <img src="imagenes/R.png" alt="Reparación de nevera">
+      </div>
+    </div>
+
+    <!-- Videos -->
+    <div class="videos">
+      <h3>🎥 Trabajos realizados</h3>
+      <div class="video-galeria">
+        <video controls>
+          <source src="videos/videos de refigeracion 1.mp4" type="video/mp4">
+          Tu navegador no soporta el formato de video.
+        </video>
+        <video controls>
+          <source src="videos/videos de tegnologia 2.mp4" type="video/mp4">
+          Tu navegador no soporta el formato de video.
+        </video>
+        <video controls>
+          <source src="videos/videos de refigeracion 3.mp4" type="video/mp4">
+          Tu navegador no soporta el formato de video.
+        </video>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <button onclick="window.location.href='index.html#contacto'">❄️ Solicitar servicio de refrigeración</button>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 RefrigSolutions. Todos los derechos reservados.</p>
+  </footer>
+  
+</body>
+</html>

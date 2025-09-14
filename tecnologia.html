@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios de Tecnología</title>
+  <link rel="icon" href="Light Guard.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+    body { 
+      scroll-behavior: smooth; 
+      background-color: #d3d7dc; 
+      color: #0a1f44; 
+    }
+
+    /* Header */
+    header {
+      background-color: #0a1f44;
+      color: white;
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    /* 🔹 Logo con animación */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    .logo h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    header nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+    header nav a:hover { color: #00bcd4; }
+
+    /* Hero */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1581091012184-496a917b7e3b?auto=format&fit=crop&w=1080&q=80') center/cover no-repeat;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: rgb(43, 55, 219);
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+    .hero p { font-size: 1.2rem; margin-bottom: 30px; }
+    .hero a {
+      background-color: #00bcd4;
+      color: white;
+      padding: 15px 30px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .hero a:hover { background-color: #0097a7; }
+
+    /* Servicios */
+    .services {
+      padding: 60px 50px;
+      background-color: #f4f4f4;
+    }
+    .services h2 { text-align: center; margin-bottom: 50px; font-size: 2.5rem; color: #0a1f44; }
+    .service-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .card:hover { transform: scale(1.05); }
+    .card i { font-size: 3rem; color: #00bcd4; margin-bottom: 20px; }
+    .card h3 { margin-bottom: 15px; color: #0a1f44; }
+    .card p { color: #0a1f44; }
+
+    /* Nosotros */
+    .about {
+      padding: 60px 50px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+    .about img {
+      flex: 1 1 300px;
+      border-radius: 15px;
+      max-width: 100%;
+      height: auto;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .about img:hover {
+      transform: scale(1.08); 
+      box-shadow: 0 15px 35px rgba(0, 188, 212, 0.4);
+    }
+    .about .text { flex: 2 1 400px; }
+    .about h2 { font-size: 2.5rem; margin-bottom: 20px; color: #0a1f44; }
+    .about p { font-size: 1.1rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+    .about p i { color: #00bcd4; font-size: 1.3rem; }
+
+    /* Casos de éxito */
+    .cases {
+      padding: 60px 50px;
+      background-color: #f4f4f4;
+    }
+    .cases h2 { text-align: center; margin-bottom: 40px; font-size: 2.5rem; color: #0a1f44; }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+
+    /* Contacto */
+    .contact {
+      padding: 60px 50px;
+      background-color: #f4f4f4;
+    }
+    .contact h2 { text-align: center; margin-bottom: 50px; font-size: 2.5rem; color: #0a1f44; }
+    .contact form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .contact input, .contact textarea {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      width: 100%;
+      color: #0a1f44;
+    }
+    .contact button {
+      padding: 15px;
+      background-color: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .contact button:hover { background-color: #0097a7; }
+
+    /* Footer */
+    footer {
+      background-color: #0a1f44;
+      color: white;
+      padding: 30px 50px;
+      text-align: center;
+    }
+    footer a { color: #00bcd4; margin: 0 10px; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="imagenes/Light Guard.png" alt="Logo Light Guard">
+      <h2>Light Guard</h2>
+    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="index.html#services">Servicios</a>
+      <a href="#about">Nosotros</a>
+      <a href="#cases">Casos</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <h1>Innovación y Tecnología a tu Alcance</h1>
+    <p>Brindamos soluciones de soporte técnico, desarrollo de software y redes para tu empresa.</p>
+    <a href="index.html#services">Ver Servicios</a>
+  </section>
+
+  <!-- Servicios -->
+  <section class="services" id="services">
+    <h2>Nuestros Servicios</h2>
+    <div class="service-cards">
+      <div class="card">
+        <i class="fas fa-desktop"></i>
+        <h3>Soporte Técnico</h3>
+        <p>Solución de problemas y mantenimiento de equipos de manera rápida y eficiente.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-code"></i>
+        <h3>Desarrollo de Software</h3>
+        <p>Aplicaciones y programas personalizados según las necesidades de tu negocio.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-network-wired"></i>
+        <h3>Instalación de Redes</h3>
+        <p>Configuración de redes locales y conexión segura para tu empresa o hogar.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Seguridad Informática</h3>
+        <p>Protección de datos y sistemas contra amenazas digitales y accesos no autorizados.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nosotros -->
+  <section class="about" id="about">
+    <img src="imagenes/Light Guard.png" alt="Equipo Light Guard">
+    <div class="text">
+      <h2>Sobre Nosotros</h2>
+      <p><i class="fas fa-lightbulb"></i> Light Guard es una empresa dedicada a brindar soluciones tecnológicas confiables y eficientes.</p>
+      <p><i class="fas fa-users"></i> Nuestro equipo de expertos trabaja con pasión para ofrecer soporte, desarrollo y seguridad.</p>
+      <p><i class="fas fa-shield-alt"></i> Nuestra misión es impulsar la innovación y proteger los sistemas de nuestros clientes.</p>
+    </div>
+  </section>
+
+  <!-- Casos de éxito -->
+  <section class="cases" id="cases">
+    <h2>📸 Casos de Éxito</h2>
+    <div class="gallery">
+      <img src="imagenes/tecnologia1.jpg" alt="Proyecto 1">
+      <img src="imagenes/tecnologia2.jpg" alt="Proyecto 2">
+      <img src="imagenes/tecnologia3.jpg" alt="Proyecto 3">
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="contact" id="contact">
+    <h2>Contacto</h2>
+    <form action="https://formspree.io/f/mayvzdwl" method="POST">
+      <input type="text" name="name" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="Tu correo electrónico" required>
+      <textarea name="message" placeholder="Tu mensaje" rows="6" required></textarea>
+      <button type="submit">Enviar Mensaje</button>
+    </form>
+    <p style="text-align:center; margin-top:20px;">Email: christopherseverino21@gmail.com | Teléfono: +1 809-382-3241</p>
+    <p style="text-align:center;">Síguenos: 
+      <a href="https://www.facebook.com/alessander.severino"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/chris_982s/"><i class="fab fa-twitter"></i></a>
+      <a href="https://x.com/ChristoSev50827"><i class="fab fa-linkedin-in"></i></a>
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Light Guard. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
