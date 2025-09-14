@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios de Tecnología</title>
- <link rel="icon" href="imagenes/Light Guard.png">
+  <link rel="icon" href="Light Guard.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* Reset básico */
@@ -151,6 +151,33 @@
     }
     .gallery img:hover { transform: scale(1.05); }
 
+     /* Videos */
+    .videos {
+      margin: 50px 0;
+      text-align: center;
+    }
+    .videos h3 {
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+    .video-galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .video-galeria video {
+      width: 100%;
+      aspect-ratio: 1 / 1;   /* 🔲 Fuerza que el video tenga forma cuadrada */
+      object-fit: cover;     /* 📐 Ajusta el video dentro del cuadrado sin deformarlo */
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .video-galeria video:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
     /* Contacto */
     .contact {
       padding: 60px 50px;
@@ -182,6 +209,26 @@
       cursor: pointer;
     }
     .contact button:hover { background-color: #0097a7; }
+
+     /* CTA */
+    .cta {
+      margin: 50px 0;
+    }
+    .cta button {
+      background: linear-gradient(45deg, #007bff, #0056b3);
+      color: white;
+      border: none;
+      padding: 15px 35px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .cta button:hover {
+      background: linear-gradient(45deg, #0056b3, #004085);
+      transform: scale(1.08);
+    }
 
     /* Footer */
     footer {
@@ -264,6 +311,34 @@
       <img src="imagenes/tecnologia3.jpg" alt="Proyecto 3">
     </div>
   </section>
+
+  <!-- Videos -->
+    <div class="videos">
+      <h3>🎥 Trabajos realizados</h3>
+      <div class="video-galeria">
+        <video controls>
+          <source src="videos/Video Electrico 1.mp4" type="video/mp4">
+          Tu navegador no soporta el formato de video.
+        </video>
+        <video controls>
+          <source src="videos/Video Electrico 1.mp4" type="video/mp4">
+          Tu navegador no soporta el formato de video.
+        </video>
+        <video controls>
+          <source src="videos/Video Electrico 1.mp4" type="video/mp4">
+          Tu navegador no soporta el formato de video.
+        </video>
+      </div>
+    </div>
+
+    <!-- CTA -->
+
+    <center>
+    <div class="cta">
+    <button onclick="window.location.href='index.html#contacto'">⚡ Solicitar servicio tegnologicos</button>
+    </div>
+    </center>
+
 
   <!-- Contacto -->
   <section class="contact" id="contact">
