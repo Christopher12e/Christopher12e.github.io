@@ -217,7 +217,6 @@
     }
     footer a { color: #00bcd4; margin: 0 10px; text-decoration: none; }
 
-    /* Medidas responsivas */
     @media (max-width: 1024px){
       h2 { font-size: 2rem; }
       p { font-size: 1rem; }
@@ -226,15 +225,18 @@
     @media (max-width: 768px) {
       header {flex-direction:column; text-align: center; }
       header nav { justify-content: center; margin-top: 10px; }
-      h2 {font-size: 1.8rem; }
-      p {font-size: 1rem; }
+      .hero h1 {font-size: 2rem; }
+      .hero p {font-size: 1rem; }
+      .bout { flex-direction: column; text-align: center; }
+      .about img {max-width: 80%; }
     }
 
     @media (max-width: 480px) {
-      h2 { font-size: 1.6rem; }
-      p { font-size: 0.9rem; }
-      .cta button { font-size: 1rem; padding: 12px 25px; }
-      .video-galeria { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.6rem; }
+    .hero p{ font-size: 0.9rem; }
+    .services h2, .cases h2 , .about h2, .contact h2 {font-size: 1.8rem; }
+    .cta button {font-size: 1rem; padding: 12px 25px;}
+    .video-galeria {grid-template-columns: 1fr; }
     }
   </style>
 </head>
