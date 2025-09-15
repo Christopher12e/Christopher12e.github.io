@@ -220,39 +220,29 @@
     }
     footer a { color: #00bcd4; margin: 0 10px; text-decoration: none; }
     
-    /** Medidas para las pantallas de telefonos y tables **/
-
-  /* RESPONSIVE: tablet / mobile */
-    @media (max-width: 1024px){
-      .section-title{ font-size:1.6rem; }
+       /* 🔹 Media Queries (Responsive) */
+    @media (max-width: 1024px) {
+      .hero h1 { font-size: 2.5rem; }
+      .hero p { font-size: 1rem; }
     }
 
-    @media (max-width: 768px){
-      .menu-toggle{ display:block; }
-      nav ul{ display:none; position: absolute; top:72px; right:12px; width:220px; flex-direction:column; gap:8px; background:var(--dark); padding:12px; border-radius:10px; box-shadow: 0 12px 30px rgba(0,0,0,0.25); }
-      nav ul.show{ display:flex; }
-      nav li a{ padding:10px; font-size:0.98rem; border-radius:8px; }
-      .logo-container h1{ font-size:1rem; }
-      .servicios{ grid-template-columns: 1fr; padding:0 14px; }
-      .team-member{ width:100%; display:flex; gap:12px; text-align:left; align-items:center; padding:12px; }
-      .team-member img{ width:72px; height:72px; margin:0; }
-      .team-member h4{ font-size:1rem; }
-      .nosotros{ gap:12px; padding:0 14px; }
-      .certificaciones{ grid-template-columns: 1fr; padding:0 14px; }
-      .contacto{ padding:0 14px; }
+    @media (max-width: 768px) {
+      header { flex-direction: column; text-align: center; }
+      header nav { justify-content: center; margin-top: 10px; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .about { flex-direction: column; text-align: center; }
+      .about img { max-width: 80%; }
     }
 
-    @media (max-width: 480px){
-      header{ height:64px; padding:8px 12px; }
-      body{ padding-top:64px; }
-      .logo-container img{ width:38px; height:38px; }
-      .logo-container h1{ font-size:0.95rem; }
-      .card-link{ padding:18px; }
-      .card-link .icon-container{ width:64px; height:64px;}
-      .card-link .icon-container i{ font-size:1.9rem; }
-      .section-title{ font-size:1.4rem; margin-top:20px; }
-      .social-icons a{ width:40px; height:40px; font-size:1.2rem; }
-    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.6rem; }
+      .hero p { font-size: 0.9rem; }
+      .services h2, .cases h2, .about h2, .contact h2 { font-size: 1.8rem; }
+      .cta button { font-size: 1rem; padding: 12px 25px; }
+      .video-galeria { grid-template-columns: 1fr; }
+    } 
+   
   </style>
 </head>
 <body>
