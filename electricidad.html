@@ -2,10 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Electricidad </title>
-  <link rel="icon" href="Light Guard.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Electricidad</title>
   <link rel="icon" href="imagenes/Light Guard.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -18,7 +17,7 @@
     /* Encabezado */
     header {
       background: linear-gradient(90deg, #1e272e, #0f4c75);
-      padding: 12px 30px;
+      padding: 12px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -26,41 +25,45 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      flex-wrap: wrap; /* 🔹 Permite que se acomode en pantallas pequeñas */
     }
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
     .logo-container img {
-      width: 45px;
-      height: 45px;
-      border-radius: 10px;
-      transition: transform 0.6s ease, filter 0.3s ease;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
       cursor: pointer;
+      transition: transform 0.6s ease, filter 0.3s ease;
     }
     .logo-container img:hover {
-      transform: scale(1.15) rotate(360deg);
-      filter: drop-shadow(0 0 8px #00a8ff);
+      transform: scale(1.1) rotate(360deg);
+      filter: drop-shadow(0 0 6px #00a8ff);
     }
     .logo-container h1 {
       color: #fff;
-      font-size: 1.6rem;
+      font-size: 1.3rem;
       margin: 0;
+    }
+
+    /* Menú */
+    nav {
+      position: relative;
     }
     nav ul {
       list-style: none;
       display: flex;
-      gap: 25px;
+      gap: 20px;
       margin: 0;
       padding: 0;
-      flex-wrap: wrap; /* 🔹 Hace que los links bajen si no caben */
     }
     nav ul li a {
       text-decoration: none;
       color: #dcdde1;
       font-weight: 500;
+      font-size: 0.95rem;
       transition: 0.3s;
     }
     nav ul li a:hover {
@@ -68,97 +71,108 @@
       text-shadow: 0 0 6px rgba(0,168,255,0.7);
     }
 
+    /* Botón hamburguesa */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
     /* Contenido principal */
     .contenido {
       max-width: 1100px;
-      margin: 40px auto;
-      padding: 20px;
+      margin: 30px auto;
+      padding: 15px;
       text-align: center;
     }
     h2 {
       color: #007bff;
-      font-size: 2.2rem;
-      margin-bottom: 12px;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
     }
     p {
-      font-size: 1.15rem;
+      font-size: 1rem;
       color: #555;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     /* Servicios */
     .servicios {
-      margin: 40px 0;
+      margin: 30px 0;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
     }
     .card {
       background: #fff;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
     }
     .card i {
-      font-size: 2.5rem;
+      font-size: 2rem;
       color: #007bff;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .card h3 {
-      margin: 12px 0;
-      font-size: 1.3rem;
+      margin: 10px 0;
+      font-size: 1.1rem;
       color: #333;
+    }
+    .card p {
+      font-size: 0.9rem;
     }
 
     /* Beneficios */
     .beneficios {
-      margin: 40px 0;
+      margin: 30px 0;
       text-align: left;
       background: #eaf4ff;
-      padding: 25px;
-      border-radius: 12px;
+      padding: 20px;
+      border-radius: 10px;
     }
     .beneficios h3 {
       color: #007bff;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
     }
     .beneficios ul {
       list-style: none;
       padding: 0;
     }
     .beneficios ul li {
-      margin: 10px 0;
-      font-size: 1.05rem;
+      margin: 8px 0;
+      font-size: 0.95rem;
     }
     .beneficios ul li::before {
       content: "✔️";
-      margin-right: 10px;
+      margin-right: 8px;
       color: #28a745;
     }
 
     /* Casos */
-    .casos {
-      margin: 40px 0;
-    }
     .casos h3 {
       color: #007bff;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
+      font-size: 1.2rem;
     }
     .galeria {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 18px;
-      margin-top: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
     }
     .galeria img {
       width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       transition: transform 0.3s, filter 0.3s;
     }
     .galeria img:hover {
@@ -167,77 +181,68 @@
     }
 
     /* Videos */
-    .videos {
-      margin: 50px 0;
-      text-align: center;
-    }
     .videos h3 {
       color: #007bff;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
     }
     .video-galeria {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
     }
     .video-galeria video {
       width: 100%;
       aspect-ratio: 1 / 1;
       object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-    .video-galeria video:hover {
-      transform: scale(1.05);
-      filter: brightness(1.1);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     /* CTA */
-    .cta {
-      margin: 50px 0;
-    }
     .cta button {
       background: linear-gradient(45deg, #007bff, #0056b3);
       color: white;
       border: none;
-      padding: 15px 35px;
-      font-size: 1.1rem;
-      border-radius: 8px;
+      padding: 12px 25px;
+      font-size: 0.95rem;
+      border-radius: 6px;
       cursor: pointer;
       transition: 0.3s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
     }
     .cta button:hover {
       background: linear-gradient(45deg, #0056b3, #004085);
-      transform: scale(1.08);
+      transform: scale(1.05);
     }
 
-    /** Footer **/
+    /* Footer */
     footer {
       background-color: #0a1f44;
       color: white;
-      padding: 30px 50px;
+      padding: 20px;
       text-align: center;
+      font-size: 0.9rem;
     }
-    footer a { color: #00bcd4; margin: 0 10px; text-decoration: none; }
+    footer a { color: #00bcd4; margin: 0 8px; text-decoration: none; }
 
-    /* 🔹 Media Queries (Responsive) */
+    /* 🔹 Media Queries */
     @media (max-width: 768px) {
-      header { flex-direction: column; text-align: center; }
-      nav ul { justify-content: center; gap: 15px; }
-      .logo-container h1 { font-size: 1.3rem; }
-      h2 { font-size: 1.8rem; }
-      p { font-size: 1rem; }
+      .menu-toggle { display: block; }
+      nav ul {
+        flex-direction: column;
+        gap: 12px;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #1e272e;
+        width: 200px;
+        padding: 15px;
+        display: none; /* oculto por defecto */
+        border-radius: 0 0 8px 8px;
+      }
+      nav ul.show { display: flex; }
     }
-
-    @media (max-width: 480px) {
-      header nav ul { flex-direction: column; gap: 10px; }
-      h2 { font-size: 1.5rem; }
-      .card { padding: 18px; }
-      .cta button { font-size: 1rem; padding: 12px 25px; }
-      .video-galeria { grid-template-columns: 1fr; }
-    } 
   </style>
 </head>
 <body>
@@ -250,11 +255,12 @@
       <h1>Light Guard</h1>
     </div>
     <nav>
+      <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
       <ul>
         <li><a href="index.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
-        <li><a href="index.html#servicios"><i class="fa-solid fa-gear"></i> Servicios</a></li>
-        <li><a href="index.html#nosotros"><i class="fa-solid fa-users"></i> Nosotros</a></li>
-        <li><a href="index.html#contacto"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+        <li><a href="#servicios"><i class="fa-solid fa-gear"></i> Servicios</a></li>
+        <li><a href="#nosotros"><i class="fa-solid fa-users"></i> Nosotros</a></li>
+        <li><a href="#contacto"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
       </ul>
     </nav>
   </header>
@@ -265,7 +271,7 @@
     <p>Soluciones eléctricas seguras y eficientes para hogares y empresas.</p>
 
     <!-- Servicios -->
-    <div id="Servicios" class="servicios">
+    <div id="servicios" class="servicios">
       <div class="card">
         <i class="fa-solid fa-plug"></i>
         <h3>Instalación eléctrica</h3>
@@ -325,22 +331,28 @@
           <source src="videos/Video Electrico 1.mp4" type="video/mp4">
           Tu navegador no soporta el formato de video.
         </video>
-        <video controls>
-          <source src="videos/Video Electrico 1.mp4" type="video/mp4">
-          Tu navegador no soporta el formato de video.
-        </video>
       </div>
     </div>
 
     <!-- CTA -->
     <div class="cta">
-      <button onclick="window.location.href='index.html#contacto'">⚡ Solicitar servicio eléctrico</button>
+      <button onclick="window.location.href='#contacto'">⚡ Solicitar servicio eléctrico</button>
     </div>
   </section>
-  
+
   <!-- Footer -->
   <footer>
     <p>© 2025 Light Guard. Todos los derechos reservados.</p>
   </footer>
+
+  <!-- Script menú -->
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector("nav ul");
+
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+    });
+  </script>
 </body>
 </html>
