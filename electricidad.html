@@ -26,6 +26,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      flex-wrap: wrap; /* 🔹 Permite que se acomode en pantallas pequeñas */
     }
     .logo-container {
       display: flex;
@@ -54,6 +55,7 @@
       gap: 25px;
       margin: 0;
       padding: 0;
+      flex-wrap: wrap; /* 🔹 Hace que los links bajen si no caben */
     }
     nav ul li a {
       text-decoration: none;
@@ -180,8 +182,8 @@
     }
     .video-galeria video {
       width: 100%;
-      aspect-ratio: 1 / 1;   /* 🔲 Fuerza que el video tenga forma cuadrada */
-      object-fit: cover;     /* 📐 Ajusta el video dentro del cuadrado sin deformarlo */
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       transition: transform 0.3s ease, filter 0.3s ease;
@@ -211,7 +213,7 @@
       transform: scale(1.08);
     }
 
-    /** Footer actualizado **/
+    /** Footer **/
     footer {
       background-color: #0a1f44;
       color: white;
@@ -219,30 +221,23 @@
       text-align: center;
     }
     footer a { color: #00bcd4; margin: 0 10px; text-decoration: none; }
-    
-       /* 🔹 Media Queries (Responsive) */
-    @media (max-width: 1024px) {
-      .hero h1 { font-size: 2.5rem; }
-      .hero p { font-size: 1rem; }
-    }
 
+    /* 🔹 Media Queries (Responsive) */
     @media (max-width: 768px) {
       header { flex-direction: column; text-align: center; }
-      header nav { justify-content: center; margin-top: 10px; }
-      .hero h1 { font-size: 2rem; }
-      .hero p { font-size: 1rem; }
-      .about { flex-direction: column; text-align: center; }
-      .about img { max-width: 80%; }
+      nav ul { justify-content: center; gap: 15px; }
+      .logo-container h1 { font-size: 1.3rem; }
+      h2 { font-size: 1.8rem; }
+      p { font-size: 1rem; }
     }
 
     @media (max-width: 480px) {
-      .hero h1 { font-size: 1.6rem; }
-      .hero p { font-size: 0.9rem; }
-      .services h2, .cases h2, .about h2, .contact h2 { font-size: 1.8rem; }
+      header nav ul { flex-direction: column; gap: 10px; }
+      h2 { font-size: 1.5rem; }
+      .card { padding: 18px; }
       .cta button { font-size: 1rem; padding: 12px 25px; }
       .video-galeria { grid-template-columns: 1fr; }
     } 
-   
   </style>
 </head>
 <body>
@@ -347,6 +342,5 @@
   <footer>
     <p>© 2025 Light Guard. Todos los derechos reservados.</p>
   </footer>
-  
 </body>
 </html>
